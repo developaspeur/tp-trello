@@ -3,17 +3,6 @@ var express = require('express');
 var app = express();
 var port = '1337';
 app.listen(port);
-/*
-app.get('/' , function (req, res){
-  console.log("une requete en get");
-});
-
-app.post('/' , function (req, res){
-  console.log("une requete en post");
-});
-
-module.exports = app;
-*/
 
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -22,7 +11,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var register = require('./routes/register');
+//var users = require('./routes/users');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -36,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/register', register);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
