@@ -12,7 +12,22 @@
     "express": "~4.14.1",
     "morgan": "~1.7.0",
     "pug": "^2.0.0-beta11",
+
     "serve-favicon": "~2.3.2",
     "sqlite3": "^3.1.8"
-  }
+
+  },
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developaspeur/tp-trello.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/developaspeur/tp-trello/issues"
+  },
+  "homepage": "https://github.com/developaspeur/tp-trello#readme"
+
 }

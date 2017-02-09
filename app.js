@@ -10,8 +10,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var register = require('./routes/register');
+var index = require('./src/router/index');
+var register = require('./src/router/register');
 //var users = require('./routes/users');
 
 // view engine setup
