@@ -87,3 +87,5 @@ class Task{
     return this;
   }
 }
+
+module.exports=Task;
