@@ -8,12 +8,10 @@
 
 class User{
 	constructor(id){
-		this = {
-			id: id || null,
-			name: null,
-			password: null,
-			_tasks: null
-		};
+		this.id = id || null;
+		this.name = null;
+		this.password = null;
+		this._tasks = null;
 	}
 
 	// Getters and setters
@@ -59,3 +57,4 @@ class User{
   }
 
 }
+module.exports=User;

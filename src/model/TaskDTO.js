@@ -10,14 +10,12 @@
 
 class Task{
 	constructor(){
-		this = {
-			id: null,
-			title: null,
-			content: null,
-      DateTask: new Date(),
-      _files: null,
-      _users:null
-    };
+		this.id = null;
+		this.title = null;
+		this.content = null;
+    this.DateTask = new Date();
+    this._files = null;
+    this._users =null;
   }
 
   // Getters and setters
@@ -87,3 +85,5 @@ class Task{
     return this;
   }
 }
+
+module.exports=Task;
