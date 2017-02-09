@@ -13,5 +13,17 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.2"
-  }
+  },
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developaspeur/tp-trello.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/developaspeur/tp-trello/issues"
+  },
+  "homepage": "https://github.com/developaspeur/tp-trello#readme"
 }
