@@ -9,8 +9,8 @@
 */
 
 class Task{
-	constructor(){
-		this.id = null;
+	constructor(id){
+		this.id = id || null;
 		this.title = null;
 		this.content = null;
     this.DateTask = new Date();
