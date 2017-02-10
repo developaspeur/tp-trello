@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h4.display-1.m-b-1  ADD TODO-LIST
+          form(method='POST' action='/task')
+            div.form-group
+              label Utilisateur: #{username}
+            div.form-group
+              label(for='pw') Description:
+              input#pw.form-control(type='text' name='Description',required)
+            div.form-group
+               a(href = "/").btn.btn-success Submit

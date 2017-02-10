@@ -27,7 +27,7 @@ class UserDAO {
 	                }
 	            })
 	        }else{
-	            console.log('SQL table product Already exists.')
+	            console.log('SQL table user Already exists.')
 	        }
 	    });
 	}
@@ -54,20 +54,24 @@ class UserDAO {
 	}
 
 	findOneForConnect(username, password){
-		 return new Promise((resolve,reject)=>{
-	        var sqlRequest = "SELECT  username , password  FROM user where username=? and password=?;"
-	        var userDTO = null;
-	        db.all(sqlRequest, [username, password],(err,row)=>{
-	            if(err){
-	                console.log('Erreur UserDAO.findOneForConnect() => '+sqlRequest+' : '+err);
-	            }else{
-                    userDTO = new UserDTO();
-                    userDTO.setName(row.username);
-                    userDTO.setPassword(row.password);
-	                resolve(UserDTO);
-	            }
+        return new Promise((resolve, reject)=> {
+            var userDTOs = [];
+	        var sqlRequest = "SELECT  user_id , username , password  FROM user where username=? and password=?;"
+             db.all(sqlRequest, [username, password],(err,rows)=>{
+                            if(err){
+                                console.log('Erreur UserDAO.findOneForConnect() => '+sqlRequest+' : '+err);
+                                reject(err);
+                            }else{
+                                rows.forEach((row)=>{
+                                    var userDTO = new UserDTO(row.user_id);
+                                    userDTO.setName(row.username);
+                                    userDTO.setPassword(row.password);
+                                    userDTOs.push(userDTO);
+                                });
+                                resolve(userDTOs);
+                            }
 	        });
-	    });
+        });
 	}
 
 	find(id){
