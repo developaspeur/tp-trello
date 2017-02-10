@@ -20,4 +20,6 @@ TrelloRouter.post('/signout',TrelloController.isInsert.bind(TrelloController));
 
 //TrelloRouter.post('/signout', TrelloController.getAllAction);
 
+TrelloRouter.get('/users', TrelloController.getAllAction);
+
 module.exports = TrelloRouter;
