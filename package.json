@@ -17,13 +17,13 @@
     "sqlite3": "^3.1.8"
 
   },
-  "description": "",
+  "description": "Node with Express with pug and sqlite3",
   "main": "app.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/developaspeur/tp-trello.git"
   },
-  "author": "",
+  "author": "Dimitri Naulleau",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/developaspeur/tp-trello/issues"

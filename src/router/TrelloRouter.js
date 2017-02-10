@@ -1,36 +1,25 @@
 /**
  * Created by Dimsurf on 09/02/2017.
  */
-
-// TrelloController.js
+// TrelloRouter.js
 
 const express = require('express');
 var TrelloController = require('../controller/TrelloController');
 var TrelloRouter = express.Router();
 
-
 /* GET home page. */
 TrelloRouter.get('/', function(req, res, next) {
-    res.render('index', { title: 'Trello' });
+    res.render('index', { title: 'Trelloo' });
 });
 
-/* GET users listing. */
-TrelloRouter.post('/', function(req, res, next) {
+/* GET LOGIN user . */
+TrelloRouter.post('/signin', TrelloController.getAllAction);
 
-    //res.send('respond with a resource');
-    var name =  req.body.name;
-    var password =  req.body.password;
-    var confirPassword =  req.body.confirmPassword;
-    console.log(name,password,confirPassword);
+/* GET Insert user . */
+TrelloRouter.get('/signout', function(req, res, next) {
+    res.render('signout', { title: 'Sign out' });
 });
 
-/*
-beerRouter.get('/',beerController.getAllAction);
-beerRouter.post('/',beerController.insertAction);
-beerRouter.get('/:id(\\d+)',beerController.getOneAction);
-beerRouter.post('/:id(\\d+)',beerController.updateAction);
-beerRouter.get('/:id(\\d+)/del/',beerController.deleteAction);
-beerRouter.get('/:id(\\d+)/clone',beerController.cloneAction);
-*/
+TrelloRouter.post('/signout', TrelloController.getAllAction);
 
 module.exports = TrelloRouter;
