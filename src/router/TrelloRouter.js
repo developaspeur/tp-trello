@@ -14,11 +14,9 @@ TrelloRouter.get('/', function(req, res, next) {
 
 /* GET LOGIN user . */
 TrelloRouter.post('/signin', TrelloController.isLogged.bind(TrelloController));
-
 /* GET Insert user . */
-TrelloRouter.get('/signout', function(req, res, next) {
-    res.render('signout', { title: 'Sign out' });
-});
+TrelloRouter.post('/signout',TrelloController.isInsert.bind(TrelloController));
+
 
 //TrelloRouter.post('/signout', TrelloController.getAllAction);
 
