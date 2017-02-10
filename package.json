@@ -10,12 +10,11 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
     "express": "~4.14.1",
+    "express-session": "^1.15.0",
     "morgan": "~1.7.0",
     "pug": "^2.0.0-beta11",
-
     "serve-favicon": "~2.3.2",
     "sqlite3": "^3.1.8"
-
   },
   "description": "Node with Express with pug and sqlite3",
   "main": "app.js",
@@ -29,5 +28,4 @@
     "url": "https://github.com/developaspeur/tp-trello/issues"
   },
   "homepage": "https://github.com/developaspeur/tp-trello#readme"
-
 }

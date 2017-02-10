@@ -23,7 +23,9 @@ TrelloRouter.get('/signout', function(req, res, next) {
     res.render('signout', { title: 'Trelloo' });
 });
 
-TrelloRouter.get('/users', TrelloController.signout.bind(TrelloController));
+TrelloRouter.get('/users', TrelloController.users.bind(TrelloController));
+
+TrelloRouter.get('/tasks', TrelloController.tasks.bind(TrelloController));
 
 
 module.exports = TrelloRouter;

@@ -37,15 +37,15 @@ class UserDAO {
 	        var sqlRequest = "SELECT user_id, username , password  FROM user;"
 	        var UserDTOs = [];
 	        db.all(sqlRequest,(err,rows)=>{
+
 	            if(err){
 	                console.log('SELECT user Error : '+err);
 	            }else{
 	                rows.forEach((row)=>{
-	                    var userDTO = new UserDTO();
-	                    userDTO.setId(row.user_id);
+	                    var userDTO = new UserDTO(row.user_id);
 	                    userDTO.setName(row.username);
 	                    userDTO.setPassword(row.password);
-	                    UserDTOs.push(UserDTO);
+	                    UserDTOs.push(userDTO);
 	                });
 	                resolve(UserDTOs);
 	            }
@@ -85,7 +85,7 @@ class UserDAO {
                     userDTO = new UserDTO(id);
                     userDTO.setName(row.username);
                     userDTO.setPassword(row.password);
-	                resolve(UserDTO);
+	                resolve(userDTO);
 	            }
 	        });
 	    });
@@ -102,7 +102,7 @@ class UserDAO {
                     userDTO = new UserDTO();
                     userDTO.setName(row.username);
                     userDTO.setPassword(row.password);
-	                resolve(UserDTO);
+	                resolve(userDTO);
 	                console.log("User been registered ! <3 ;)");
 	            }
 	        });

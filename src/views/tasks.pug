@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        h4.display-1.m-b-1 #{title}
+  
+  .tasks-list
+    table(border="1")
+      thead
+        th ID 
+        th title
+        th date
+        th content
+      tbody
+        each task in tasks
+          tr
+            td #{task.getId()}
+            td #{task.getTitle()}
+            th #{task.getDate().toString()}
+            th #{task.getContent()}

@@ -3,6 +3,8 @@
  */
 var UserDAO = require('../model/UserDAO');
 var UserDTO = require('../model/UserDTO');
+var TaskDAO = require('../model/TaskDAO');
+var TaskDTO = require('../model/TaskDTO');
 
 class TrelloController {
 
@@ -38,7 +40,29 @@ class TrelloController {
 
     }
 
+    // List users
+    users (req,res){
+      UserDAO.findAll().then(function (users){
+        console.log(users)
+        res.render('users', {title: "Users", users: users} );
+      })
+      .catch(function (err){
+          res.send('respond errer' + err);
+      });
 
+    }
+
+    // List tasks
+    tasks (req,res){
+      TaskDAO.findAll().then(function (tasks){
+        console.log(tasks)
+        res.render('tasks', {title: "Tasks", tasks: tasks} );
+      })
+      .catch(function (err){
+          res.send('respond errer' + err);
+      });
+
+    }
 
 }
 
