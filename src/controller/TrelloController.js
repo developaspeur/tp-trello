@@ -4,31 +4,25 @@
 var UserDAO = require('../model/UserDAO');
 var UserDTO = require('../model/UserDTO');
 
-class TrelloController{
-  constructor(){
-    this.name = null;  
-    this.password = null;  
-    this.confirPassword = null;  
-  }
+class TrelloController {
 
-	getAllAction(req,res){
-console.log(this)
-		switch (req){
-			case "users":
-      break;
+    constructor(){
+        this.name = null ;
+        this.password = null ;
+        this.confirmPassword = null ;
+    }
 
-		}
-    this.name =  req.body.name;
-    this.password =  req.body.password;
-    this.confirPassword =  req.body.confirmPassword;
-    console.log(name,password,confirPassword);
+    isLogged (req,res){
 
-    res.send('respond with a resource'+ name + password + confirPassword);
+        this.name =  req.body.name;
+        this.password =  req.body.password;
+        this.confirmPassword =  req.body.confirmPassword;
 
-	};
+        res.send('respond with a resource'+ this.name + this.password + this.confirmPassword);
+
+    }
+
+
 }
-
-
-
 
 module.exports = new TrelloController();
