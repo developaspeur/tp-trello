@@ -8,17 +8,19 @@ class TrelloController {
 
     constructor(){
         this.name = null ;
-        this.email = null ;
         this.password = null ;
         this.confirmPassword = null ;
     }
 
     // S'il est logger
     isLogged (req,res){
-
         this.name =  req.body.name;
         this.password =  req.body.password;
         this.confirmPassword =  req.body.confirmPassword;
+
+        UserDAO.findOneForConnect(this.name , this.password);
+
+
         res.send('respond with a resource'+ this.name + this.password + this.confirmPassword);
     }
 

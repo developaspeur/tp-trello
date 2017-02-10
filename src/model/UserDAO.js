@@ -64,13 +64,13 @@ class UserDAO {
 
 	findOneForConnect(username, password){
 		 return new Promise((resolve,reject)=>{
-	        var sqlRequest = "SELECT user_id, username , password  FROM user where username=? and password=?;"
+	        var sqlRequest = "SELECT  username , password  FROM user where username=? and password=?;"
 	        var userDTO = null;
 	        db.all(sqlRequest, [username, password],(err,row)=>{
 	            if(err){
 	                console.log('Erreur UserDAO.findOneForConnect() => '+sqlRequest+' : '+err);
 	            }else{
-                    userDTO = new UserDTO(id);
+                    userDTO = new UserDTO();
                     userDTO.setName(row.username);
                     userDTO.setPassword(row.password);
 	                resolve(UserDTO);
