@@ -22,4 +22,6 @@ TrelloRouter.get('/signout', function(req, res, next) {
 
 TrelloRouter.post('/signout', TrelloController.getAllAction);
 
+TrelloRouter.get('/users', TrelloController.getAllAction);
+
 module.exports = TrelloRouter;
