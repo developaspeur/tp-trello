@@ -1,15 +1,6 @@
 /**
  * Created by Dimsurf on 09/02/2017.
  */
-
-class DB{
- 	constructor(){
- 		this.sqlite = require('sqlite3').verbose();
- 		this.fs = require('fs');
- 		this.UserDTO = require('./UserDTO');
- 	}
- }
-
 const sqlite = require('sqlite3').verbose();
 const fs = require('fs');
 const UserDTO = require('./UserDTO');
@@ -91,6 +82,24 @@ class UserDAO {
                     userDTO.setName(row.username);
                     userDTO.setPassword(row.password);
 	                resolve(UserDTO);
+	            }
+	        });
+	    });
+	}
+
+	signout(username, password){
+		 return new Promise((resolve,reject)=>{
+	        var sqlRequest = "INSERT INTO user(username, password) VALUES(? , ?);"
+	        var userDTO = null;
+	        db.all(sqlRequest, [username, password],(err,row)=>{
+	            if(err){
+	                console.log('Erreur UserDAO.signout() => '+sqlRequest+' : '+err);
+	            }else{
+                    userDTO = new UserDTO();
+                    userDTO.setName(row.username);
+                    userDTO.setPassword(row.password);
+	                resolve(UserDTO);
+	                console.log("User been registered ! <3 ;)");
 	            }
 	        });
 	    });

@@ -22,6 +22,14 @@ class TrelloController {
 
     }
 
+    signout (req,res){
+      this.name = req.body.name;
+      this.password = req.body.password;
+      UserDAO.signout(this.name, this.password);
+      res.send('respond with a resource'+ this.name + this.password);
+
+    }
+
 
 }
 
