@@ -21,36 +21,15 @@ function UserDAO(){
                 ");",function(err){
                 if (err){
                     console.log('create DB user Error : '+err);
-                    db.run("DROP TABLE user")
                 }else{
                     console.log('SQL table user initialized.')
                 }
             })
         }else{
-            console.log('SQL table product Already exists.')
+            console.log('table user Already exists.')
         }
     });
 }
 
-UserDAO.prototype.findAll = ()=>{
-   return new Promise((resolve,reject)=>{
-        var sqlRequest = "SELECT user_id, username , password  FROM user;"
-        var UserDTOs = [];
-        db.all(sqlRequest,(err,rows)=>{
-            if(err){
-                console.log('SELECT user Error : '+err);
-            }else{
-                rows.forEach((row)=>{
-                    var UserDTO = new UserDTO();
-                    UserDTO.setId(row.user_id);
-                    UserDTO.setName(row.username);
-                    UserDTO.setPassword(row.password);
-                    UserDTOs.push(UserDTO);
-                });
-                resolve(UserDTOs);
-            }
-        });
-    });
-};
 
 module.exports = new UserDAO();

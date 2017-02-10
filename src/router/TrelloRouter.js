@@ -13,13 +13,13 @@ TrelloRouter.get('/', function(req, res, next) {
 });
 
 /* GET LOGIN user . */
-TrelloRouter.post('/signin', TrelloController.getAllAction);
+TrelloRouter.post('/signin', TrelloController.isLogged.bind(TrelloController));
 
 /* GET Insert user . */
 TrelloRouter.get('/signout', function(req, res, next) {
     res.render('signout', { title: 'Sign out' });
 });
 
-TrelloRouter.post('/signout', TrelloController.getAllAction);
+//TrelloRouter.post('/signout', TrelloController.getAllAction);
 
 module.exports = TrelloRouter;
